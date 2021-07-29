@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <View
+        android:id="@+id/itemCardBg"
+        android:layout_width="120dp"
+        android:layout_height="106dp"
+        android:background="@drawable/bg_card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent "/>
+
+    <ImageView
+        android:id="@+id/playerImage"
+        android:layout_width="77.24dp"
+        android:layout_height="92.294dp"
+        android:layout_marginBottom="110dp"
+        android:background="@drawable/bg_player"
+        app:layout_constraintTop_toTopOf="@id/itemCardBg"
+        app:layout_constraintStart_toStartOf="@id/itemCardBg"
+        app:layout_constraintEnd_toEndOf="@id/itemCardBg"
+        app:layout_constraintBottom_toBottomOf="@id/itemCardBg"/>
+
+    <TextView
+        android:id="@+id/playerName"
+        style="@style/TitleInfo"
+        tools:text="Luka Jovic"
+        app:layout_constraintTop_toBottomOf="@id/playerImage"
+        app:layout_constraintStart_toStartOf="@id/playerImage"
+        app:layout_constraintEnd_toEndOf="@id/playerImage"/>
+
+    <TextView
+        android:id="@+id/playerTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Real Madrid"
+        android:textSize="12sp"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/primaryTextColor"
+        app:layout_constraintTop_toBottomOf="@id/playerName"
+        app:layout_constraintStart_toStartOf="@id/playerImage"
+        app:layout_constraintEnd_toEndOf="@id/playerImage"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
