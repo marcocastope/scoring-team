@@ -82,7 +82,7 @@
 
     <TextView
         android:id="@+id/homeScore"
-        style="@style/TeamNameSemiBold"
+        style="@style/TeamNameSemiBoldLarge"
         android:textColor="#FFFF"
         tools:text="2"
         app:layout_constraintEnd_toStartOf="@id/eventLine"
@@ -91,7 +91,7 @@
 
     <TextView
         android:id="@+id/awayScore"
-        style="@style/TeamNameSemiBold"
+        style="@style/TeamNameSemiBoldLarge"
         android:textColor="#FFFF"
         tools:text="0"
         app:layout_constraintStart_toEndOf="@id/eventLine"

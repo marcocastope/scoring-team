@@ -10,7 +10,10 @@ import com.marcocastope.scoringteam.R
 import com.marcocastope.scoringteam.model.Team
 import com.squareup.picasso.Picasso
 
-class TeamListAdapter(private val teams: MutableList<Team> = mutableListOf()) : RecyclerView.Adapter<TeamListAdapter.TeamViewHolder>() {
+class TeamListAdapter(
+    private val teams: MutableList<Team> = mutableListOf(),
+    private val listener: (Team) -> Unit
+) : RecyclerView.Adapter<TeamListAdapter.TeamViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_team_main, parent, false)
@@ -18,7 +21,9 @@ class TeamListAdapter(private val teams: MutableList<Team> = mutableListOf()) : 
     }
 
     override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {
-        holder.bind(teams[position])
+        val team = teams[position]
+        holder.bind(team)
+        holder.itemView.setOnClickListener { listener(team) }
     }
 
     override fun getItemCount(): Int = teams.size

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ScoringTeam</string>
+    <string name="formed_year">Fundación</string>
+    <string name="league_name">Liga</string>
+    <string name="sport_name">Deporte</string>
+    <string name="location_str">Ubicación</string>
+    <string name="more_info_title">Más Información</string>
 </resources>

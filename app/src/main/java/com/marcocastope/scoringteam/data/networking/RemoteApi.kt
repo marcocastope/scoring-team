@@ -62,4 +62,40 @@ class RemoteApi(private val apiService: RemoteApiService) {
 
         })
     }
+
+    fun getTeam(id: String, onTeamReceived: (Team?, Throwable?) -> Unit) {
+        apiService.getTeam(id).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                val responseJson = response.body()?.string()
+                if (responseJson == null) {
+                    onTeamReceived(null, NullPointerException("no data response"))
+                    return
+                }
+                val data = gson.fromJson(responseJson, TeamResponse::class.java)
+                if (data != null) {
+                    onTeamReceived(Team(
+                        idTeam = data.teams[0].idTeam,
+                        strTeam = data.teams[0].strTeam,
+                        intFormedYear = data.teams[0].intFormedYear,
+                        strLeague = data.teams[0].strLeague,
+                        strStadium = data.teams[0].strStadium,
+                        strStadiumThumb = data.teams[0].strStadiumThumb,
+                        strStadiumLocation = data.teams[0].strStadiumLocation,
+                        intStadiumCapacity = data.teams[0].intStadiumCapacity,
+                        strDescriptionEN = data.teams[0].strDescriptionEN,
+                        strCountry = data.teams[0].strCountry,
+                        strTeamBadge = data.teams[0].strTeamBadge,
+                        strTeamJersey = data.teams[0].strTeamJersey,
+                        strTeamLogo = data.teams[0].strTeamLogo,
+                        strSport = data.teams[0].strSport), null)
+                } else {
+                    onTeamReceived(null, NullPointerException("no data response"))
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, error: Throwable) {
+                onTeamReceived(null, error)
+            }
+        })
+    }
 }

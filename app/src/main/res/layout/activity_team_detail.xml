@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryDarkColor"
+    android:fillViewport="true"
+    tools:context=".ui.detail.TeamDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/detailToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Detalle"
+            app:titleTextColor="@color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/teamDetailInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:background="@drawable/bg_card"
+            android:paddingBottom="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailToolbar">
+
+            <ImageView
+                android:id="@+id/teamDetailBadged"
+                android:layout_width="108dp"
+                android:layout_height="128dp"
+                app:layout_constraintBottom_toBottomOf="@id/teamDetailInfo"
+                app:layout_constraintStart_toStartOf="@id/teamDetailInfo"
+                app:layout_constraintTop_toTopOf="@id/teamDetailInfo"
+                tools:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/teamDetailName"
+                style="@style/TeamNameSemiBold"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toEndOf="@id/teamDetailBadged"
+                app:layout_constraintTop_toTopOf="@id/teamDetailInfo"
+                tools:text="Real Madrid" />
+
+            <TextView
+                android:id="@+id/teamDetailCountry"
+                style="@style/TeamNameSmall"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/greenTextColor"
+                app:layout_constraintStart_toStartOf="@id/teamDetailName"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailName"
+                tools:text="Spaña" />
+
+            <TextView
+                android:id="@+id/teamDetailFormedYearPh"
+                style="@style/TeamNameSmall"
+                android:layout_marginTop="10dp"
+                android:text="@string/formed_year"
+                android:textColor="#99FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/teamDetailName"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailCountry" />
+
+            <TextView
+                android:id="@+id/teamDetailFormedYear"
+                style="@style/TeamNameSmall"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="@id/teamDetailName"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailFormedYearPh"
+                tools:text="1901" />
+
+            <TextView
+                android:id="@+id/teamDetailLeagueNamePh"
+                style="@style/TeamNameSmall"
+                android:layout_marginTop="8dp"
+                android:text="@string/league_name"
+                android:textColor="#99FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/teamDetailName"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailFormedYear" />
+
+            <TextView
+                android:id="@+id/teamDetailLeagueName"
+                style="@style/TeamNameSmall"
+                android:layout_width="80dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="@id/teamDetailName"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailLeagueNamePh"
+                tools:text="La Liga" />
+
+            <TextView
+                android:id="@+id/teamDetailSportPh"
+                style="@style/TeamNameSmall"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/sport_name"
+                android:textColor="#99FFFFFF"
+                app:layout_constraintStart_toEndOf="@id/teamDetailFormedYearPh"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailCountry" />
+
+            <TextView
+                android:id="@+id/teamDetailSport"
+                style="@style/TeamNameSmall"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="@id/teamDetailSportPh"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailSportPh"
+                tools:text="soccer" />
+
+            <TextView
+                android:id="@+id/teamDetailStadiumLocationPh"
+                style="@style/TeamNameSmall"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="25dp"
+                android:text="@string/location_str"
+                android:textColor="#99FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/teamDetailSportPh"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailSport" />
+
+            <TextView
+                android:id="@+id/teamDetailStadiumLocation"
+                style="@style/TeamNameSmall"
+                android:layout_width="80dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="@id/teamDetailSportPh"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailStadiumLocationPh"
+                tools:text="Madrid" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/stadiumWrapper"
+            android:layout_width="150dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/bg_card"
+            app:layout_constraintEnd_toStartOf="@id/teamJerseyWrapper"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/teamDetailInfo">
+
+            <ImageView
+                android:id="@+id/teamDetailStadiumThumb"
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="@id/stadiumWrapper"
+                app:layout_constraintEnd_toEndOf="@id/stadiumWrapper"
+                app:layout_constraintStart_toStartOf="@id/stadiumWrapper"
+                app:layout_constraintTop_toTopOf="@id/stadiumWrapper"
+                tools:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/teamDetailStadium"
+                style="@style/TeamNameSmall"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintStart_toStartOf="@id/teamDetailStadiumThumb"
+                app:layout_constraintEnd_toEndOf="@id/teamDetailStadiumThumb"
+                app:layout_constraintTop_toBottomOf="@id/teamDetailStadiumThumb"
+                tools:text="Santiago Bernabeu" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/teamJerseyWrapper"
+            android:layout_width="150dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:background="@drawable/bg_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/stadiumWrapper"
+            app:layout_constraintTop_toBottomOf="@id/teamDetailInfo">
+
+            <ImageView
+                android:id="@+id/teamDetailJerseyThumb"
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="@id/teamJerseyWrapper"
+                app:layout_constraintEnd_toEndOf="@id/teamJerseyWrapper"
+                app:layout_constraintStart_toStartOf="@id/teamJerseyWrapper"
+                app:layout_constraintTop_toTopOf="@id/teamJerseyWrapper"
+                tools:srcCompat="@drawable/ic_launcher_background" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/teamDetailInfoPh"
+            style="@style/TitleMain"
+            android:text="@string/more_info_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stadiumWrapper" />
+
+        <TextView
+            android:id="@+id/teamDetailDescription"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/teamDetailInfoPh"
+            tools:text="El Arsenal Football Club (pronunciación en inglés: /ˈɑː(ɹ)sənəl ˈfʊtˌbɔl klʌb/) es un club de fútbol profesional con sede en Holloway, Londres, Inglaterra, que juega en la máxima categoría del fútbol de ese país, la Premier League. Uno de los más laureados del fútbol inglés, ha ganado 43 títulos en su país, incluyendo 13 campeonatos de liga y un récord de 13 Copas de Inglaterra; también ha ganado dos títulos internacionales: la Copa europea de Ferias en 1970 y la Recopa de Europa en 1994.\r\n\r\nFundado en 1886 en el sudeste de Londres, en 1893, se convirtió en el primer club del sur de Inglaterra en unirse a la Football League. Ganó sus primeros títulos —cinco ligas y dos FA Cups— en los años 1930. Luego de un período de escasez en los años posteriores a la Segunda Guerra Mundial, se convirtió en el segundo club del siglo XX en ganar el doblete, obteniendo el Campeonato de Liga y la FA Cup de la temporada 1970-71. Los logros siguieron en los años 1990 y 2000. Durante esos años, Arsenal ganó un doblete de copas nacionales, dos dobletes de Liga y Copa, y dos bicampeonatos de la Copa de Inglaterra. Finalizó una temporada de Liga invicto y se convirtió en el primer club de Londres en llegar a la final de la Liga de Campeones de la UEFA.\r\n\r\nLos colores tradicionales del club, el blanco y el rojo, han evolucionado con el tiempo. Del mismo modo, fue cambiando la ubicación del club; fundado en el distrito de Woolwich, en el sureste de Londres, en 1913 se mudó al norte de Londres, más exactamente en el distrito de Highbury, donde fue establecido el Arsenal Stadium, que funcionó hasta 2006, donde se hizo un traslado más corto, hacia los alrededores de Holloway, donde se levantó el actual Emirates Stadium. La estadía histórica del Arsenal en el norte de Londres, ha creado con el tiempo una fuerte rivalidad con el Tottenham Hotspur, conocida como el Derbi del Norte de Londres.4​\r\n\r\nArsenal posee una de las aficiones más numerosas del mundo.5​6​7​ Según la revista Forbes, el club fue el quinto club más valioso del mundo en 2014, con un valor de 1300 millones libras.8​" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
