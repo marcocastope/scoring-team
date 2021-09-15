@@ -1,16 +1,18 @@
 package com.marcocastope.scoringteam.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.marcocastope.scoringteam.App
 import com.marcocastope.scoringteam.R
+import com.marcocastope.scoringteam.model.Team
 import com.marcocastope.scoringteam.ui.main.MainActivity
 import com.squareup.picasso.Picasso
 
-class TeamDetailActivity : AppCompatActivity() {
-    private val remoteApi = App.remoteApi
+class TeamDetailActivity : AppCompatActivity(), DetailContract.ViewInterface {
+
+    private lateinit var presenter: DetailContract.PresenterInterface
     private lateinit var teamDetailDescription: TextView
     private lateinit var teamDetailName: TextView
     private lateinit var teamDetailCountry: TextView
@@ -29,8 +31,18 @@ class TeamDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_detail)
         initUi()
+        setupPresenter()
         id = intent.getStringExtra(MainActivity.DETAIL_ACTIVITY)
-        loadTeamDetail(id)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        presenter.getTeamDetail(id ?: "")
+    }
+
+    private fun setupPresenter() {
+        val remoteDataSource = App.remoteApi
+        presenter = DetailPresenter(this, remoteDataSource)
     }
 
     private fun initUi() {
@@ -47,21 +59,17 @@ class TeamDetailActivity : AppCompatActivity() {
         teamDetailBadged = findViewById(R.id.teamDetailBadged)
     }
 
-    private fun loadTeamDetail(id: String?) {
-        remoteApi.getTeam(id ?: "") { team, error ->
-            if (team != null) {
-                teamDetailDescription.text = team.strDescriptionEN
-                teamDetailName.text = team.strTeam
-                teamDetailCountry.text = team.strCountry
-                teamDetailLeagueName.text = team.strLeague
-                teamDetailStadium.text = team.strStadium
-                teamDetailSport.text = team.strSport
-                teamDetailStadiumLocation.text = team.strStadiumLocation
-                teamDetailFormedYear.text = team.intFormedYear
-                Picasso.get().load(team.strTeamBadge).into(teamDetailBadged)
-                Picasso.get().load(team.strStadiumThumb).into(teamDetailStadiumThumb)
-                Picasso.get().load(team.strTeamJersey).into(teamDetailJerseyThumb)
-            }
-        }
+    override fun displayTeam(team: Team) {
+        teamDetailDescription.text = team.strDescriptionEN
+        teamDetailName.text = team.strTeam
+        teamDetailCountry.text = team.strCountry
+        teamDetailLeagueName.text = team.strLeague
+        teamDetailStadium.text = team.strStadium
+        teamDetailSport.text = team.strSport
+        teamDetailStadiumLocation.text = team.strStadiumLocation
+        teamDetailFormedYear.text = team.intFormedYear
+        Picasso.get().load(team.strTeamBadge).into(teamDetailBadged)
+        Picasso.get().load(team.strStadiumThumb).into(teamDetailStadiumThumb)
+        Picasso.get().load(team.strTeamJersey).into(teamDetailJerseyThumb)
     }
 }
