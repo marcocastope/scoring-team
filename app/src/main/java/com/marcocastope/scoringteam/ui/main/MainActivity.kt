@@ -12,6 +12,7 @@ import com.marcocastope.scoringteam.ui.detail.TeamDetailActivity
 import com.marcocastope.scoringteam.ui.main.adapters.EventListAdapter
 import com.marcocastope.scoringteam.ui.main.adapters.TeamListAdapter
 import com.marcocastope.scoringteam.ui.navigateTo
+import com.marcocastope.scoringteam.ui.toast
 
 class MainActivity : AppCompatActivity(), MainContract.ViewInterface {
     companion object {
@@ -65,5 +66,13 @@ class MainActivity : AppCompatActivity(), MainContract.ViewInterface {
 
     override fun displayTeams(teams: List<Team>) {
         teamAdapter.setTeams(teams)
+    }
+
+    override fun displayEventsError() {
+        toast("get events failed")
+    }
+
+    override fun displayTeamsError() {
+        toast("get teams failed")
     }
 }

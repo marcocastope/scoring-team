@@ -10,5 +10,6 @@ class DetailContract {
 
     interface ViewInterface {
         fun displayTeam(team: Team)
+        fun displayError()
     }
 }

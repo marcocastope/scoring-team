@@ -8,6 +8,7 @@ import com.marcocastope.scoringteam.App
 import com.marcocastope.scoringteam.R
 import com.marcocastope.scoringteam.model.Team
 import com.marcocastope.scoringteam.ui.main.MainActivity
+import com.marcocastope.scoringteam.ui.toast
 import com.squareup.picasso.Picasso
 
 class TeamDetailActivity : AppCompatActivity(), DetailContract.ViewInterface {
@@ -71,5 +72,9 @@ class TeamDetailActivity : AppCompatActivity(), DetailContract.ViewInterface {
         Picasso.get().load(team.strTeamBadge).into(teamDetailBadged)
         Picasso.get().load(team.strStadiumThumb).into(teamDetailStadiumThumb)
         Picasso.get().load(team.strTeamJersey).into(teamDetailJerseyThumb)
+    }
+
+    override fun displayError() {
+        toast("get team detail failed")
     }
 }

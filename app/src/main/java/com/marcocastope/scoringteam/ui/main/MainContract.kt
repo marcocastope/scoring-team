@@ -13,5 +13,7 @@ class MainContract {
     interface ViewInterface {
         fun displayEvents(events: List<Event>)
         fun displayTeams(teams: List<Team>)
+        fun displayEventsError()
+        fun displayTeamsError()
     }
 }
